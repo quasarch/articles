@@ -6,6 +6,12 @@
         "date": "2022-12-04"
     },
     {
+        "id": "akash-terragrunt-integration",
+        "title": "Akash Terraform Provider - Terragrunt Integration",
+        "author": "João Luna",
+        "date": "2022-09-18"
+    },
+    {
         "id": "akash-terraform-provider-demo",
         "title": "Akash Terraform Provider Demo",
         "author": "João Luna",
