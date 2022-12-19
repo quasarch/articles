@@ -3,7 +3,8 @@
         "id": "akash-cloudflare",
         "title": "Akash + Cloudflare — using terraform",
         "author": "Gonçalo Samuel",
-        "date": "2022-12-04"
+        "date": "2022-12-04",
+        "externalLink": "https://medium.com/@goncalosamuel/akash-cloudflare-using-terraform-3dd17cfd1e9a"
     },
     {
         "id": "akash-terragrunt-integration",

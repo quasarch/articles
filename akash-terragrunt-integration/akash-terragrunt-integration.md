@@ -129,7 +129,6 @@ New versions of this blog post will be created with the increase in number of su
 * [Akash Terraform Provider Github](https://github.com/cloud-j-luna/terraform-provider-akash)
 * [Akash Terraform Provider](https://registry.terraform.io/providers/cloud-j-luna/akash/0.0.4)
 * [My Twitter](https://twitter.com/luna_4_go)
-* [Previous Post](https://forum.akash.network/t/akash-terraform-provider-demo/4630)
 
 ## Thank you!
 Thank you for the Akash Team to make the development of the Akash Terraform Provider possible and for the interest they have been showing. Thank you to the Akash Insiders as well for all the feedback and all the partnerships. Stay tuned for more and better posts.
