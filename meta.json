@@ -1,5 +1,11 @@
 [
     {
+        "id": "akash-providers-datasource",
+        "title": "Akash Terraform Provider - Providers Datasource",
+        "author": "João Luna",
+        "date": "2023-01-06"
+    },
+    {
         "id": "akash-cloudflare",
         "title": "Akash + Cloudflare — using terraform",
         "author": "Gonçalo Samuel",
