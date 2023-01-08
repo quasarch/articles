@@ -1,13 +1,13 @@
 img
 
-Version [0.0.7](https://registry.terraform.io/providers/cloud-j-luna/akash/0.0.7) of the Akash Terraform Provider is out and with it the result of the partnership between Praetor and Quasarch.
+Version [0.0.8](https://registry.terraform.io/providers/cloud-j-luna/akash/0.0.8) of the Akash Terraform Provider is out and with it the result of the partnership between Praetor and Quasarch.
 
 To install this version simply import it.
 ```h
 terraform {
   required_providers {
     akash = {
-      version = "0.0.7"
+      version = "0.0.8"
       source  = "cloud-j-luna/akash"
     }
   }
