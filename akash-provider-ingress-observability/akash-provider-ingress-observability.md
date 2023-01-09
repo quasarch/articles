@@ -1,12 +1,12 @@
 ## Introduction
 
 Akash Network is a decentralized cloud marketplace where tenants purchase cloud-grade compute in an open permissionless manner.
-The decentralized cloud is a shift from computing resources being owned and operated by the three large Cloud companies (Amazon, Google, and Microsoft) to a decentralized network of Cloud providers running open source software developed by a community and creating competition in an open marketplace with more **providers**.
+The decentralized cloud is a shift from computing resources being owned and operated mostly by the three large Cloud companies (Amazon, Google, and Microsoft) to a decentralized network of *Cloud Providers* running open source software developed by a community and creating competition in an open marketplace with more **providers**.
 
 **Providers** provide compute resources to the network leveraging technologies such as Kubernetes, Docker and NGINX. One of the core components of these **providers** is the *NGINX Ingress Controller*.
-The *NGINX Ingress Controller* is an application that runs in a cluster and configures an HTTP load balancer according to Ingress resources.
+The *NGINX Ingress Controller* is an application that runs in a cluster and configures an HTTP load balancer according to Ingress resources. It is the entry point of all incoming traffic to the provider.
 
-In this blogpost I'll walk you through the process of enabling metrics on your Akash Ingress Controller.
+In this blogpost I'll walk you through the process of enabling metrics on your *Akash Ingress Controller* (w).
 
 ## Pre-requisites
 * A working Akash Provider
@@ -19,7 +19,7 @@ Before starting let's make sure we have the latest version of the `akash/akash-i
 ```bash
 helm show chart akash/akash-ingress
 ```
-If you have a version >=1.2.6 you are all set. If not make sure to pull the latest version by running `helm pull akash/akash-ingress`.
+If you have a version >=1.2.6 you are all set. If not make sure to update to the latest version by running `helm repo update akash`.
 
 ### Upgrade the Ingress Controller
 
@@ -29,18 +29,29 @@ helm upgrade akash-ingress akash/akash-ingress -n ingress-nginx --set controller
 --set-string controller.podAnnotations."prometheus\.io/scrape"="true" \
 --set-string controller.podAnnotations."prometheus\.io/port"="10254"
 ```
+Depending on your rollout strategy and cluster setup this may impact your uptime.
+**Make sure to take apropriate actions to avoid provider downtime.**
 
 ### Installing Prometheus
 
+To install Prometheus in your provider cluster simply run:
 ```bash
 kubectl apply --kustomize github.com/kubernetes/ingress-nginx/deploy/prometheus/
 ```
+This will deploy Prometheus in your cluster. Make sure everything is running properly.
 
 ### Installing Grafana
 
+Similar to Prometheys you can deploy Grafana in your cluster by running:
 ```bash
 kubectl apply --kustomize github.com/kubernetes/ingress-nginx/deploy/grafana/
 ```
+
+Access the newly deployed Grafana by port forwarding to it. You can use `kubectl` for this.
+```bash
+kubectl port-forward svc/grafana 3000:3000 -n ingress-nginx
+```
+Next open your browser and go to `localhost:3000`. The default user and password are both **admin**
 
 ### Creating the dashboards
 
@@ -64,3 +75,14 @@ The `PROMETHEUS_IP` is the `CLUSTER-IP` assigned to the `prometheus-server` serv
 After creating the data source you can start creating your dashboards.
 
 You can download a dashboard for your exported metrics [here](https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/grafana/dashboards/nginx.json). Simply copy and import the JSON into grafana.
+
+You should have a dashboard similar to the one below.
+![Grafana-Screenshot](grafana-screenshot.png)
+
+## Conclusion
+
+Now you have an Akash Provider with observability enabled which will allow you to monitor your provider's KPIs.
+The next steps will be up to you.
+Whether you want to create new dashboards that leverage the metrics exported by the NGINX Ingress Controller, whether you want to export some custom metrics in your cluster's services or simply enhance the ones I provided in this post.
+
+Remember that effective monitoring of clusters makes it easier to manage your containerized infrastructure, by tracking uptime, utilization of cluster resources (such as memory, CPU, storage and network trafic), and interaction between cluster components.
