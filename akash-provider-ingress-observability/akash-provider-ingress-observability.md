@@ -74,10 +74,11 @@ ingress-nginx-controller-admission   ClusterIP   10.43.68.255    <none>        4
 The `PROMETHEUS_IP` is the `CLUSTER-IP` assigned to the `prometheus-server` service.
 After creating the data source you can start creating your dashboards.
 
-You can download a dashboard for your exported metrics [here](https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/grafana/dashboards/nginx.json). Simply copy and import the JSON into grafana.
+You can download a dashboard for your exported metrics [here](https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/grafana/dashboards/nginx.json).
+Simply copy and import the JSON into grafana.
 
 You should have a dashboard similar to the one below.
-![Grafana-Screenshot](grafana-screenshot.png)
+![Grafana-Screenshot](https://github.com/quasarch/articles/raw/main/akash-provider-ingress-observability/grafana-screenshot.png)
 
 ## Conclusion
 
