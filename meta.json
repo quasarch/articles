@@ -1,5 +1,11 @@
 [
     {
+        "id": "akash-providers-ingress-observability",
+        "title": "Enabling Monitoring on Akash Providers",
+        "author": "João Luna",
+        "date": "2023-01-09"
+    },
+    {
         "id": "akash-providers-datasource",
         "title": "Akash Terraform Provider - Providers Datasource",
         "author": "João Luna",
