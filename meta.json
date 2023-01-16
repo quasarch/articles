@@ -1,6 +1,6 @@
 [
     {
-        "id": "akash-providers-ingress-observability",
+        "id": "akash-provider-ingress-observability",
         "title": "Enabling Monitoring on Akash Providers",
         "author": "João Luna",
         "date": "2023-01-09"
