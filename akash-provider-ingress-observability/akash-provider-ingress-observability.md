@@ -30,6 +30,7 @@ helm upgrade akash-ingress akash/akash-ingress -n ingress-nginx --set controller
 --set-string controller.podAnnotations."prometheus\.io/port"="10254"
 ```
 Depending on your rollout strategy and cluster setup this may impact your uptime.
+If you have find issues updating the ingress controller it might be helpful to uninstall the chart and install it again with the latest version.
 **Make sure to take apropriate actions to avoid provider downtime.**
 
 ### Installing Prometheus

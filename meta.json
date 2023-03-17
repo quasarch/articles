@@ -1,5 +1,11 @@
 [
     {
+      "id": "akash-provider-using-terraform",
+      "title": "Setting up an Akash Provider using Terraform",
+      "author": "André Ribeiro & João Luna",
+      "date": ""
+    },
+    {
         "id": "akash-provider-ingress-observability",
         "title": "Enabling Monitoring on Akash Providers",
         "author": "João Luna",
